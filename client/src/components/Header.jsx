@@ -109,7 +109,7 @@ const Header = () => {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="w-8 h-8 flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-200"
+                className="w-8 h-8 flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-200 mr-2"
                 aria-label="Clear search"
               >
                 <AiOutlineClose className="text-xl" />
@@ -123,7 +123,7 @@ const Header = () => {
             className="flex sm:hidden w-full justify-between items-center mt-2 px-4 py-1 bg-white rounded-lg font-semibold cursor-pointer"
           >
             Menu
-            <span className={`inline-block text-2xl transform transition-transform duration-200 ${mobileMenu ? 'rotate-45' : ''}`}>
+            <span className={`inline-block text-3xl transform transition-transform duration-200 ${mobileMenu ? 'rotate-45' : ''}`}>
               +
             </span>
           </div>
