@@ -7,7 +7,6 @@ import { AppContext } from '../contexts/AppContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-toastify';
 
-
 const Header = () => {
   const { setToken, posts, searchQuery, setSearchQuery, setFilteredPosts, uniqueStates, uniqueProviders, isProfileCompleted, profile } = useContext(AppContext);
 
