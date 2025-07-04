@@ -67,7 +67,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full cursor-pointer bg-purple-600 text-white py-2 rounded-md font-semibold hover:bg-purple-700 transition"
+            className={`w-full cursor-pointer bg-purple-600 text-white py-2 rounded-md font-semibold hover:bg-purple-700 transition ${loading?'opacity-90 pointer-events-none':''}`}
           >
             {loading ? (isLogin ? 'Login...' : 'Sign Up...') : (isLogin ? 'Login' : 'Sign Up')}
           </button>
