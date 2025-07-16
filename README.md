@@ -1,7 +1,7 @@
 👨🏻‍🎓 QuickScholar:
 QuickScholar is a student-focused platform that uses smart filters and pre-scraped data from Fastweb to match users with relevant scholarships based on their profiles.
 
-Scholarships data last scraped on- 2 June 2025 
+Scholarships data last scraped on- 16 July 2025 
 
 Live Demo-(https://quickscholar.vercel.app/)
 
