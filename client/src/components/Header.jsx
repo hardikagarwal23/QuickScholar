@@ -109,7 +109,7 @@ const Header = () => {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="w-8 h-8 flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-200"
+                className="w-8 h-8 flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-200 mr-2"
                 aria-label="Clear search"
               >
                 <AiOutlineClose className="text-xl" />
@@ -120,10 +120,10 @@ const Header = () => {
           {/* Mobile Menu Icon */}
           <div
             onClick={() => setMobileMenu((prev) => !prev)}
-            className="flex sm:hidden w-full justify-between items-center mt-2 px-4 py-2 bg-white rounded-lg font-semibold cursor-pointer"
+            className="flex sm:hidden w-full justify-between items-center mt-2 px-4 py-1 bg-white rounded-lg font-semibold cursor-pointer"
           >
             Menu
-            <span className={`inline-block text-2xl transform transition-transform duration-200 ${mobileMenu ? 'rotate-45' : ''}`}>
+            <span className={`inline-block text-3xl transform transition-transform duration-200 ${mobileMenu ? 'rotate-45' : ''}`}>
               +
             </span>
           </div>
@@ -136,7 +136,7 @@ const Header = () => {
                 key="mobileMenu"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
+                exit={{ opacity: 0.1, height: 0 }}
                 transition={{ duration: 0.2, ease: 'easeInOut' }}
                 className="flex flex-col gap-y-2 mt-2 bg-purple-100 rounded-md p-2 w-full"
               >
@@ -209,11 +209,11 @@ const Header = () => {
 
       {dropDown && (
         <div className="bg-white rounded-lg shadow-md mt-4 p-4 flex flex-col sm:flex-row sm:justify-between flex-wrap gap-4">
-          <div className="flex flex-col sm:flex-row items-center gap-2">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center gap-2">
             <select
               value={offeredBy}
               onChange={(e) => setOfferedBy(e.target.value)}
-              className="border p-2 rounded-md w-full sm:w-auto cursor-pointer"
+              className="border p-2 rounded-md w-full sm:max-w-3xl cursor-pointer"
             >
               <option value="">Offered By</option>
               {uniqueProviders.map((prov, idx) => (
