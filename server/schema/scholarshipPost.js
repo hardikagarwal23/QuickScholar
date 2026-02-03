@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema({
   amount: { type: String, required: true },
   award: { type: String, required: true },
   deadline: { type: String, required: true },
-  descriptoion:{type:String,required:true},
+  description:{type:String,required:true},
   mingpa:{type:String,required:true},
   apply: { type: String, required: true }
 }, { timestamps: true });
