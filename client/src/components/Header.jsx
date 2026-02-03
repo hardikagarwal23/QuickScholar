@@ -43,7 +43,7 @@ const Header = () => {
     if (matchByProfile && isProfileCompleted) {
       filtered = filtered.filter((post) => {
         const stateMatch = post.state.toLowerCase().includes(profile.state.toLowerCase());
-        const gpaMatch = post.mingpa === "--" || post.mingpa <= profile.GPA;
+        const gpaMatch = post.mingpa === "--" || Number(post.mingpa) <= profile.GPA;
 
         let amountMatch = false;
         const amountStr = post.amount.toLowerCase();
