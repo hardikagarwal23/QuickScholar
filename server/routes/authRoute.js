@@ -5,7 +5,6 @@ import User from '../schema/user.js';
 
 const router = express.Router();
 
-
 router.post('/signup', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -20,10 +19,16 @@ router.post('/signup', async (req, res) => {
 
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
     res.json({
-  success: true,
-  user: newUser,
-  token,
-  message:"Welcome to QuickScholar!"});
+      success: true,
+      user: {
+        id: newUser._id,
+        email: newUser.email,
+        isProfileComplete: newUser.isProfileComplete,
+        profile: newUser.profile,
+      },
+      token,
+      message: "Welcome to QuickScholar!"
+    });
   } catch (error) {
     res.json({ error: error.message });
   }
@@ -37,18 +42,24 @@ router.post('/login', async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ error: 'Invalid credentials' });
 
-    const isMatch = await bcrypt.compare(password, user.passwordHash); 
+    const isMatch = await bcrypt.compare(password, user.passwordHash);
     if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
-    res.json({success:true, user, token,message:"logged in successfully." });
+    res.json({
+      success: true,
+      user: {
+        id: user._id,
+        email: user.email,
+        isProfileComplete: user.isProfileComplete,
+        profile: user.profile,
+      }, token,
+      message: "logged in successfully."
+    });
   } catch (error) {
     res.json({ error: error.message });
   }
 });
-
-
-
 
 export default router;
